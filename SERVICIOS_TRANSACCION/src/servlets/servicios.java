@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import beans.BoletaBean;
 import beans.ComprobanteBean;
 import beans.DetalleTransaccionBean;
@@ -19,6 +21,7 @@ import dao.interfaces.ComprobanteDao;
 import dao.interfaces.PedidoDao;
 import dao.factory.DAOFactory;
 import util.EnviarBoleta;
+import util.ResponseObject;
 
 /**
  * Servlet implementation class servicios
@@ -43,6 +46,8 @@ public class servicios extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 
+		ResponseObject responseobj=null;
+		
 		try {
 
 			// USUARIO
@@ -302,40 +307,81 @@ public class servicios extends HttpServlet {
 						email.sendEmail(mensaje,correo);
 						
 						
+
+						
+						responseobj=new ResponseObject();
+						response.setContentType("application/json");
+						response.setCharacterEncoding("UTF-8");
+						responseobj.setSuccess(true);
+						responseobj.setObject(codigoNuevo);
+						
+						response.getWriter().write(new Gson().toJson(responseobj));
+						System.out.println("json" + new Gson().toJson(responseobj));
+						
+						/*
 						out.println("<script type=\"text/javascript\">");
 						out.println("alert('Su pedido ha sido Procesado con exito! Su numero de pedido es  : "+ codigoNuevo + "');");
 						out.println("location='ServletGenerarPedido';");
 						out.println("localStorage.clear();");
 						out.println("$('#cantidadProductos').text(localStorage.length);");
-						out.println("</script>");
+						out.println("</script>");*/
 
 					} else {
 
+						responseobj=new ResponseObject();
+						response.setContentType("application/json");
+						response.setCharacterEncoding("UTF-8");
+						responseobj.setSuccess(true);
+						responseobj.setObject(0);
+						
+						response.getWriter().write(new Gson().toJson(responseobj));
+						System.out.println("json" + new Gson().toJson(responseobj));
+						/*
 						out.println("<script type=\"text/javascript\">");
 						out.println("alert('Su pedido no ha sido Procesado con exito! ');");
 						out.println("location='ServletGenerarPedido';");
 						out.println("$('#cantidadProductos').text(localStorage.length);");
-						out.println("</script>");
+						out.println("</script>");*/
 
 					}
 
 				} else {
+					
+					responseobj=new ResponseObject();
+					response.setContentType("application/json");
+					response.setCharacterEncoding("UTF-8");
+					responseobj.setSuccess(true);
+					responseobj.setObject(0);
+					
+					response.getWriter().write(new Gson().toJson(responseobj));
+					System.out.println("json" + new Gson().toJson(responseobj));
 
+					/*
 					out.println("<script type=\"text/javascript\">");
 					out.println("alert('Su pedido no ha sido Procesado con exito! ');");
 					out.println("location='ServletGenerarPedido';");
 					out.println("$('#cantidadProductos').text(localStorage.length);");
-					out.println("</script>");
+					out.println("</script>");*/
 
 				}
 
 			} else {
 
+				responseobj=new ResponseObject();
+				response.setContentType("application/json");
+				response.setCharacterEncoding("UTF-8");
+				responseobj.setSuccess(true);
+				responseobj.setObject(0);
+				
+				response.getWriter().write(new Gson().toJson(responseobj));
+				System.out.println("json" + new Gson().toJson(responseobj));
+				
+				/*
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Su pedido no ha sido Procesado con exito! ');");
 				out.println("location='ServletGenerarPedido';");
 				out.println("$('#cantidadProductos').text(localStorage.length);");
-				out.println("</script>");
+				out.println("</script>");*/
 
 			}
 

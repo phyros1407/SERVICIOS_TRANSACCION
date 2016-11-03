@@ -461,7 +461,7 @@ public class EnviarBoleta extends Object {
 						"							  			<span>"+boleta.get(0).getTip_com()+" DE VENTA                                                                                                                                             "+
 						"							  				<span>&nbsp;</span><br>                                                                                                                                       "+
 						"							  				<span>&nbsp;</span>                                                                                                                                           "+
-						"							  				<span style='font-size:18px;'>"+boleta.get(0).getNum_com()+"</span>                                                                                                          "+
+						"							  				<span style='font-size:18px;'>"+boleta.get(0).getNum_com().substring(5)+"</span>                                                                                                          "+
 						"							  			</span>                                                                                                                                                           "+
 						"							  		</h2>                                                                                                                                                                 "+
 						"							  	</div>                                                                                                                                                                    "+

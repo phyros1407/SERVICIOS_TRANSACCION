@@ -26,7 +26,7 @@ public class MySql_ComprobanteDao extends MySqlDAOFactory implements Comprobante
 							"SELECT                                                      	   "+
 							"	substring(tr.NUM,6) AS NUMERO_TRANSACCION,                     "+
 							"   tr.IDE AS IDENTIFICADOR,                                       "+
-							"	CONCAT(pe.APE_PAT,' ',pe.APE_PAT,' ',pe.NOM) AS NOMBRE_CLIENTE,"+
+							"	CONCAT(pe.APE_PAT,' ',pe.APE_MAT,' ',pe.NOM) AS NOMBRE_CLIENTE,"+
 							"	cp.TIPO AS TIPO_COMPROBANTE,								   "+
 							"   cp.RUC AS RUC,                                                 "+
 							"   cp.RAZ_SOC AS RAZON_SOCIAL,                                    "+
